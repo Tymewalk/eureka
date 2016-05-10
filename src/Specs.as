@@ -337,7 +337,9 @@ public class Specs {
 		// strings
 		["join %s %s",							"r", 9, "concatenate:with:",	"hello ", "world"],
 		["letter %n of %s",						"r", 9, "letter:of:",			1, "world"],
+		["letters %n to %n of %s",					"r", 9, "letters:to:of:",	1, 5, "hello world"],
 		["length of %s",						"r", 9, "stringLength:",		"world"],
+		["string %s contains %s?",					"b", 9, "string:contains:",	"chair", "hair"],
 				
 		// logic
 		["%s < %s",								"b", 10, "<",					"", ""],

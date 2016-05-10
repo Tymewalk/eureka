@@ -63,6 +63,8 @@ public class Primitives {
 		primTable["concatenate:with:"]	= function(b:*):* { return ("" + interp.arg(b, 0) + interp.arg(b, 1)).substr(0, 10240); };
 		primTable["letter:of:"]			= primLetterOf;
 		primTable["stringLength:"]		= function(b:*):* { return String(interp.arg(b, 0)).length };
+		primTable["string:contains:"]		= primStringContains;
+		primTable["letters:to:of:"]		= primLettersToOf;
 
 		primTable["%"]					= primModulo;
 		primTable["rounded"]			= function(b:*):* { return Math.round(interp.numarg(b, 0)) };
@@ -118,6 +120,24 @@ public class Primitives {
 		var i:int = interp.numarg(b, 0) - 1;
 		if ((i < 0) || (i >= s.length)) return "";
 		return s.charAt(i);
+	}
+
+	private function primStringContains(b:Block):String {
+		var s1:String = interp.arg(b, 0);
+		var s2:String = interp.arg(b, 1);
+		if (s1.indexOf(s2) == -1) {
+			var result = false;
+		} else {
+			var result = true;
+		}
+		return result;
+	}
+
+	private function primLettersToOf(b:Block):String {
+		var i1:int = interp.numarg(b, 0) - 1;
+		var i2:int = interp.numarg(b, 1);
+		var s:String = interp.arg(b, 2);
+		return s.substring(i1, i2);
 	}
 
 	private function primModulo(b:Block):Number {
