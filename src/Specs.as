@@ -44,9 +44,9 @@ public class Specs {
 	public static const eventsCategory:int = 5;
 	public static const controlCategory:int = 6;
 	public static const operatorsCategory:int = 8;
-	public static const dataCategory:int = 9;
-	public static const myBlocksCategory:int = 10;
-	public static const listCategory:int = 12;
+	public static const dataCategory:int = 11;
+	public static const myBlocksCategory:int = 12;
+	public static const listCategory:int = 14;
 	public static const extensionsCategory:int = 20;
 
 	public static var variableColor:int = 0xEE7D16; // Scratch 1.4: 0xF3761D
@@ -63,15 +63,17 @@ public class Specs {
 		[1,  "Motion",		0x4a6cd4],
 		[2,  "Looks",		0x8a55d7],
 		[3,  "Sound",		0xbb42c3],
-		[4,  "Pen",			0x0e9a6c], // Scratch 1.4: 0x009870
+		[4,  "Pen",		0x0e9a6c], // Scratch 1.4: 0x009870
 		[5,  "Events",		0xc88330],
 		[6,  "Control",		0xe1a91a],
 		[7,  "Sensing",		0x2ca5e2],
-		[8,  "Operators",	0x5cb712],
-		[9,  "Data",		variableColor],
-		[10, "More Blocks",	procedureColor],
-		[11, "Parameter",	parameterColor],
-		[12, "List",		listColor],
+		[8,  "Math",		0x12B735], // 0x5CB712 in Scratch 2.0 (operators)
+		[9,  "Strings",		0xB83493],
+		[10, "Logic",		0x72228C],
+		[11, "Data",		variableColor],
+		[12, "More Blocks",	procedureColor],
+		[13, "Parameter",	parameterColor],
+		[14, "List",		listColor],
 		[20, "Extension",	extensionsColor],
 	];
 
@@ -315,7 +317,7 @@ public class Specs {
 		["days since 2000", 					"r", 107, "timestamp"],
 		["username",							"r", 107, "getUserName"],
 
-		// operators
+		// math
 		["%n + %n",								"r", 8, "+",					"", ""],
 		["%n - %n",								"r", 8, "-",					"", ""],
 		["%n * %n",								"r", 8, "*",					"", ""],
@@ -324,42 +326,45 @@ public class Specs {
 		["-"],
 		["pick random %n to %n",		"r", 8, "randomFrom:to:",		1, 10],
 		["-"],
-		["%s < %s",								"b", 8, "<",					"", ""],
-		["%s = %s",								"b", 8, "=",					"", ""],
-		["%s > %s",								"b", 8, ">",					"", ""],
-		["-"],
-		["%b and %b",							"b", 8, "&"],
-		["%b or %b",							"b", 8, "|"],
-		["not %b",								"b", 8, "not"],
-		["-"],
-		["join %s %s",							"r", 8, "concatenate:with:",	"hello ", "world"],
-		["letter %n of %s",						"r", 8, "letter:of:",			1, "world"],
-		["length of %s",						"r", 8, "stringLength:",		"world"],
-		["-"],
+		
 		["%n mod %n",							"r", 8, "%",					"", ""],
 		["round %n",							"r", 8, "rounded", 				""],
 		["-"],
 		["%m.mathOp of %n",						"r", 8, "computeFunction:of:",	"sqrt", 9],
-
+		
+		// strings
+		["join %s %s",							"r", 9, "concatenate:with:",	"hello ", "world"],
+		["letter %n of %s",						"r", 9, "letter:of:",			1, "world"],
+		["length of %s",						"r", 9, "stringLength:",		"world"],
+				
+		// logic
+		["%s < %s",								"b", 10, "<",					"", ""],
+		["%s = %s",								"b", 10, "=",					"", ""],
+		["%s > %s",								"b", 10, ">",					"", ""],
+		["-"],
+		["%b and %b",							"b", 10, "&"],
+		["%b or %b",							"b", 10, "|"],
+		["not %b",								"b", 10, "not"],
+		
 		// variables
-		["set %m.var to %s",								" ", 9, SET_VAR],
-		["change %m.var by %n",								" ", 9, CHANGE_VAR],
-		["show variable %m.var",							" ", 9, "showVariable:"],
-		["hide variable %m.var",							" ", 9, "hideVariable:"],
+		["set %m.var to %s",								" ", 11, SET_VAR],
+		["change %m.var by %n",								" ", 11, CHANGE_VAR],
+		["show variable %m.var",							" ", 11, "showVariable:"],
+		["hide variable %m.var",							" ", 11, "hideVariable:"],
 
 		// lists
-		["add %s to %m.list",								" ", 12, "append:toList:"],
+		["add %s to %m.list",								" ", 14, "append:toList:"],
 		["-"],
-		["delete %d.listDeleteItem of %m.list",				" ", 12, "deleteLine:ofList:"],
-		["insert %s at %d.listItem of %m.list",				" ", 12, "insert:at:ofList:"],
-		["replace item %d.listItem of %m.list with %s",		" ", 12, "setLine:ofList:to:"],
+		["delete %d.listDeleteItem of %m.list",				" ", 14, "deleteLine:ofList:"],
+		["insert %s at %d.listItem of %m.list",				" ", 14, "insert:at:ofList:"],
+		["replace item %d.listItem of %m.list with %s",		" ", 14, "setLine:ofList:to:"],
 		["-"],
-		["item %d.listItem of %m.list",						"r", 12, "getLine:ofList:"],
-		["length of %m.list",								"r", 12, "lineCountOfList:"],
-		["%m.list contains %s?",								"b", 12, "list:contains:"],
+		["item %d.listItem of %m.list",						"r", 14, "getLine:ofList:"],
+		["length of %m.list",								"r", 14, "lineCountOfList:"],
+		["%m.list contains %s?",								"b", 14, "list:contains:"],
 		["-"],
-		["show list %m.list",								" ", 12, "showList:"],
-		["hide list %m.list",								" ", 12, "hideList:"],
+		["show list %m.list",								" ", 14, "showList:"],
+		["hide list %m.list",								" ", 14, "hideList:"],
 
 		// obsolete blocks from Scratch 1.4 that may be used in older projects
 		["play drum %n for %n beats",			" ", 98, "drum:duration:elapsed:from:", 1, 0.25], // Scratch 1.4 MIDI drum
