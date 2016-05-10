@@ -68,6 +68,10 @@ public class Primitives {
 		primTable["rounded"]			= function(b:*):* { return Math.round(interp.numarg(b, 0)) };
 		primTable["computeFunction:of:"] = primMathFunction;
 
+		// constants
+		primTable["pi"]			= function(b:*):* { return Math.PI };
+		primTable["e"]			= function(b:*):* { return Math.E };
+
 		// clone
 		primTable["createCloneOf"]		= primCreateCloneOf;
 		primTable["deleteClone"]		= primDeleteClone;

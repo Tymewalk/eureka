@@ -326,11 +326,13 @@ public class Specs {
 		["-"],
 		["pick random %n to %n",		"r", 8, "randomFrom:to:",		1, 10],
 		["-"],
-		
 		["%n mod %n",							"r", 8, "%",					"", ""],
 		["round %n",							"r", 8, "rounded", 				""],
 		["-"],
 		["%m.mathOp of %n",						"r", 8, "computeFunction:of:",	"sqrt", 9],
+		["-"],
+		["pi",							"r", 8, "pi"],
+		["e",							"r", 8, "e"],
 		
 		// strings
 		["join %s %s",							"r", 9, "concatenate:with:",	"hello ", "world"],
